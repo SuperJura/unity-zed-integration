@@ -23,13 +23,12 @@ namespace UnityZed
             sLogger.Log("OpenProject");
 
             // always add project path
-            var args = new StringBuilder($"\"{m_ProjectPath}\"");
+            var args = new StringBuilder($"\"{m_ProjectPath}\" ");
 
             // if file path is provided, add it too
             if (!string.IsNullOrEmpty(filePath))
             {
-                args.Append(" -a ");
-                args.Append($"\"{filePath}\"");
+                args.Append($"\"{filePath}");
 
                 if (line >= 0)
                 {
@@ -44,6 +43,7 @@ namespace UnityZed
                 }
             }
 
+            Debug.Log(m_ExecPath + " " + args);
             return CodeEditor.OSOpenFile(m_ExecPath.ToString(), args.ToString());
         }
     }

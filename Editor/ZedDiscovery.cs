@@ -45,10 +45,10 @@ namespace UnityZed
 
             var windowsCandidates = new[]
             {
-                Path.Combine(programFiles, "Zed", "zed.exe"),
-                Path.Combine(programFilesX86, "Zed", "zed.exe"),
-                Path.Combine(localAppData, "Programs", "Zed", "zed.exe"), // common for user-level installs
-                Path.Combine(localAppData, "Zed", "zed.exe")
+                Path.Combine(programFiles, "Zed", "bin", "zed.exe"),
+                Path.Combine(programFilesX86, "Zed", "bin", "zed.exe"),
+                Path.Combine(localAppData, "Programs", "Zed", "bin", "zed.exe"), // common for user-level installs
+                Path.Combine(localAppData, "Zed", "bin", "zed.exe")
             };
 
             foreach (var winPath in windowsCandidates)
