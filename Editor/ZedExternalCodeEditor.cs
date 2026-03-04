@@ -21,7 +21,6 @@ namespace UnityZed
             return (IGenerator)Activator.CreateInstance(type);
         }
 
-        private static readonly ILogger sLogger = ZedLogger.Create();
         private static readonly ZedDiscovery sDiscovery = new();
 
         private ZedProcess m_Process;
@@ -58,7 +57,7 @@ namespace UnityZed
 
             if (!string.IsNullOrEmpty(filePath) && !m_Generator.IsSupportedFile(filePath))
             {
-                sLogger.Log($"File '{filePath}' is not supported by the generator.");
+                Debug.Log($"File '{filePath}' is not supported by the generator.");
                 return false;
             }
 

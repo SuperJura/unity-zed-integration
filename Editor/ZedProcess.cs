@@ -7,8 +7,6 @@ namespace UnityZed
 {
     public class ZedProcess
     {
-        private static readonly ILogger sLogger = ZedLogger.Create();
-
         private readonly NPath m_ExecPath;
         private readonly NPath m_ProjectPath;
 
@@ -20,8 +18,6 @@ namespace UnityZed
 
         public bool OpenProject(string filePath = "", int line = -1, int column = -1)
         {
-            sLogger.Log("OpenProject");
-
             // always add project path
             var args = new StringBuilder($"\"{m_ProjectPath}\" ");
 
@@ -59,7 +55,7 @@ namespace UnityZed
             }
             catch (System.Exception ex)
             {
-                sLogger.LogError("ZedProcess", $"Failed to start Zed: {ex.Message}");
+                UnityEngine.Debug.LogError($"ZedProcess Failed to start Zed: {ex.Message}");
                 return false;
             }
         }

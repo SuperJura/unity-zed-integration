@@ -7,8 +7,6 @@ namespace UnityZed
 {
     public class ZedSettings
     {
-        private static readonly ILogger sLogger = ZedLogger.Create();
-
         private readonly NPath m_SettingsPath;
 
         public ZedSettings()
@@ -20,7 +18,7 @@ namespace UnityZed
         {
             if (m_SettingsPath.FileExists() == false)
             {
-                sLogger.Log("Zed settings file not found, creating default settings file.");
+                Debug.Log("Zed settings file not found, creating default settings file.");
                 m_SettingsPath.CreateFile();
                 m_SettingsPath.WriteAllText(JSON.Parse(kDefaultSettings).ToString());
             }
