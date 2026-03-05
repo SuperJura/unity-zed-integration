@@ -6,12 +6,12 @@ using UnityEngine.Assertions;
 using UnityEditor;
 using Microsoft.Unity.VisualStudio.Editor;
 
-namespace UnityZed
+namespace UnityZedIntegration
 {
     public class ZedExternalCodeEditor : IExternalCodeEditor
     {
         readonly Zed zed = new();
-        
+
         [InitializeOnLoadMethod]
         static void Initialize() => CodeEditor.Register(new ZedExternalCodeEditor());
 

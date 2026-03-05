@@ -11,7 +11,7 @@ using UnityEditor;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-namespace UnityZed
+namespace UnityZedIntegration
 {
     public class Zed
     {
@@ -188,12 +188,11 @@ namespace UnityZed
 
             var style = new GUIStyle
             {
+                richText = true,
                 margin = new RectOffset(0, 4, 0, 0)
             };
 
-			GUI.color = Color.gray;
-            GUILayout.Label($"{displayName} v{version} enabled", style);
-			GUI.color = Color.white;
+            GUILayout.Label($"<color=grey>{displayName} v{version} enabled</color>", style);
             GUILayout.EndHorizontal();
 
             EditorGUILayout.LabelField("Generate .csproj files for:");
